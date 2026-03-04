@@ -2,7 +2,7 @@
   "name": "Shelter Tracker",
   "short_name": "Shelter",
   "description": "Track shelter visits during alerts",
-  "start_url": "/",
+  "start_url": "./",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#000000",
