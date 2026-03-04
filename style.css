@@ -49,18 +49,8 @@ body {
   padding: 0 16px 20px;
 }
 
-/* full-body screens */
-.screen-full {
-  display: none;
-  min-height: 0;
-}
-
-.screen-full.active {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  gap: 8px;
-  padding: 0 16px 20px;
+.spacer {
+  flex: 1;
 }
 
 /* ---- buttons ---- */
@@ -89,7 +79,7 @@ body {
 }
 
 .btn-green {
-  background: #178E21;
+  background: #178120;
   color: #000;
 }
 
@@ -98,21 +88,7 @@ body {
   color: #bbb;
 }
 
-.btn-dark-gray {
-  color: #bbb;
-}
-
-.spacer {
-  min-height: 0;
-}
-
-/* ---- shelter screen ---- */
-
-.shelter-bottom {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
+/* ---- timer ---- */
 
 .timer {
   font-family: 'IBM Plex Sans Condensed', sans-serif;
@@ -124,21 +100,20 @@ body {
   padding: 0 20px;
 }
 
-
 /* ---- outside/check-in ---- */
-
-.outside-top {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  gap: 8px;
-  min-height: 0;
-}
 
 .outside-body {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   padding: 16px 6px;
+  min-height: 0;
+}
+
+.outside-top {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 8px;
   min-height: 0;
 }
 

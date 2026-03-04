@@ -25,19 +25,19 @@
   </header>
 
   <!-- ALERT: initial rocket alert -->
-  <main id="screen-alert" class="screen-full">
+  <main id="screen-alert" class="screen">
     <div class="spacer"></div>
     <button id="btn-alert-ack" class="btn-half btn-dark">Rocket<br>alert</button>
   </main>
 
   <!-- IDLE: two full halves -->
   <main id="screen-idle" class="screen active">
-    <button id="btn-not-going" class="btn-half btn-dark btn-dark-gray">Not<br>Going</button>
+    <button id="btn-not-going" class="btn-half btn-dark">Not<br>Going</button>
     <button id="btn-go-shelter" class="btn-half btn-green">Go to<br>Shelter</button>
   </main>
 
   <!-- SHELTER: timer + exit -->
-  <main id="screen-shelter" class="screen-full">
+  <main id="screen-shelter" class="screen">
     <div class="spacer"></div>
     <div id="timer-shelter" class="timer">00:07</div>
     <button id="btn-exit-shelter" class="btn-half btn-green">Exit</button>
@@ -56,7 +56,7 @@
   </main>
 
   <script src="data.js"></script>
-  <script src="app.js"></script>
+  <script type="module" src="app.js"></script>
 </body>
 
 </html>
