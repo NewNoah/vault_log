@@ -78,38 +78,43 @@ function formatHeader() {
 
 // ---- STATS ----
 
-function getTodayStats() {
-    const today = new Date().toDateString();
-    let count = 0;
-    let totalMs = 0;
-
+function getTotalTimeMs() {
+    let ms = 0;
     for (const v of visits) {
-        const d = new Date(v.start);
-        if (d.toDateString() === today) {
-            count++;
-            if (v.end) totalMs += new Date(v.end).getTime() - d.getTime();
-        }
+        if (v.end) ms += new Date(v.end).getTime() - new Date(v.start).getTime();
     }
-
     if (state === STATES.SHELTER && shelterStart) {
-        const startDate = new Date(shelterStart);
-        if (startDate.toDateString() === today) {
-            totalMs += Date.now() - startDate.getTime();
-        }
+        ms += Date.now() - new Date(shelterStart).getTime();
     }
+    return ms;
+}
 
-    return { count, totalMs };
+function getLastEntry() {
+    if (state === STATES.SHELTER && shelterStart) return shelterStart;
+    if (visits.length === 0) return null;
+    return visits[visits.length - 1].start;
+}
+
+function formatShortDate(iso) {
+    const d = new Date(iso);
+    return `${pad(d.getDate())}.${pad(d.getMonth() + 1)} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
 }
 
 function renderStats() {
-    const today = getTodayStats();
     const total = state === STATES.SHELTER ? visits.length + 1 : visits.length;
-    const todayCount = state === STATES.SHELTER ? today.count + 1 : today.count;
+
+    // Count today's visits
+    const today = new Date().toDateString();
+    let todayCount = visits.filter(v => new Date(v.start).toDateString() === today).length;
+    if (state === STATES.SHELTER) todayCount++;
 
     if (state === STATES.SHELTER && shelterStart) {
         els.headerStats.textContent = `in shelter ${formatDuration(Date.now() - new Date(shelterStart).getTime())}`;
     } else {
-        els.headerStats.innerHTML = `today: ${todayCount}<br>total: ${total}`;
+        const totalTime = formatDuration(getTotalTimeMs());
+        const last = getLastEntry();
+        const lastStr = last ? formatShortDate(last) : '—';
+        els.headerStats.innerHTML = `today: ${todayCount} · total: ${total}<br>time: ${totalTime}<br>last: ${lastStr}`;
     }
 }
 
