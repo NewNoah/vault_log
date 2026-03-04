@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#000000">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="description" content="Track shelter visits during alerts">
+  <title>Shelter</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/png" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <span id="header-time">--:--</span>
+    <span id="header-stats"></span>
+  </header>
+
+  <!-- ALERT: initial rocket alert -->
+  <main id="screen-alert" class="screen-full">
+    <div class="spacer"></div>
+    <button id="btn-alert-ack" class="btn-half btn-dark">Rocket<br>alert</button>
+  </main>
+
+  <!-- IDLE: two full halves -->
+  <main id="screen-idle" class="screen active">
+    <button id="btn-not-going" class="btn-half btn-dark btn-dark-gray">Not<br>Going</button>
+    <button id="btn-go-shelter" class="btn-half btn-green">Go to<br>Shelter</button>
+  </main>
+
+  <!-- SHELTER: timer + exit -->
+  <main id="screen-shelter" class="screen-full">
+    <div class="spacer"></div>
+    <div id="timer-shelter" class="timer">00:07</div>
+    <button id="btn-exit-shelter" class="btn-half btn-green">Exit</button>
+  </main>
+
+  <!-- OUTSIDE: countdown + two buttons -->
+  <main id="screen-outside" class="screen">
+    <div class="outside-body">
+      <div id="timer-outside" class="timer timer-outside">20:00</div>
+      <div class="outside-note">Confirm you're okay</div>
+    </div>
+    <div class="outside-top">
+      <button id="btn-outside-go" class="btn-half btn-green">Shelter</button>
+      <button id="btn-outside-ok" class="btn-half btn-dark" style="color:#555;">I'm OK</button>
+    </div>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
