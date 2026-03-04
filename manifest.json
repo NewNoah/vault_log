@@ -1,7 +1,7 @@
 {
-  "name": "Shelter Tracker",
-  "short_name": "Shelter",
-  "description": "Track shelter visits during alerts",
+  "name": "Vault Log",
+  "short_name": "Vault Log",
+  "description": "Log time spent in bomb shelters",
   "start_url": "./",
   "display": "standalone",
   "orientation": "portrait",
