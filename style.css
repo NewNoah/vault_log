@@ -25,7 +25,7 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   padding: 16px 20px 10px;
-  font-size: 13px;
+  font-size: 24px;
   color: #666;
   line-height: 1.5;
 }
@@ -45,8 +45,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  gap: 8px;
-  padding: 0 16px 20px;
+  gap: 10px;
+  padding: 0 20px 20px;
 }
 
 .spacer {
@@ -62,7 +62,7 @@ body {
   border: none;
   border-radius: 28px;
   font-family: 'IBM Plex Mono', 'Courier New', monospace;
-  font-size: clamp(48px, 19vw, 72px);
+  font-size: clamp(36px, 12vw, 56px);
   font-weight: 400;
   line-height: 0.95;
   letter-spacing: -0.06em;
@@ -92,12 +92,12 @@ body {
 
 .timer {
   font-family: 'IBM Plex Sans Condensed', sans-serif;
-  font-size: 16px;
+  font-size: 24px;
   font-weight: 400;
   color: #666;
   font-variant-numeric: tabular-nums;
   line-height: 1;
-  padding: 0 20px;
+  padding: 0px 20px 20px 0px;
 }
 
 /* ---- outside/check-in ---- */
@@ -106,7 +106,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 16px 6px;
+  padding: ;
   min-height: 0;
 }
 
