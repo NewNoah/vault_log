@@ -4,55 +4,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#ffffff">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="description" content="Log time spent in bomb shelters">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="description" content="Log time spent in the vault during rocket alerts">
   <title>Vault Log</title>
   <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="icon" type="image/png" href="icons/icon-192.png">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
   <link rel="apple-touch-icon" href="icons/icon-192.png">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <header class="header">
-    <span id="header-time">--:--</span>
-    <span id="header-stats"></span>
-  </header>
-
-  <!-- ALERT: initial rocket alert -->
-  <main id="screen-alert" class="screen">
-    <div class="spacer"></div>
-    <button id="btn-alert-ack" class="btn-half btn-dark">Rocket<br>alert</button>
-  </main>
-
-  <!-- IDLE: two full halves -->
-  <main id="screen-idle" class="screen active">
-    <button id="btn-not-going" class="btn-half btn-dark">Not<br>Going</button>
-    <button id="btn-go-shelter" class="btn-half btn-green">Go to<br>Shelter</button>
-  </main>
-
-  <!-- SHELTER: timer + exit -->
-  <main id="screen-shelter" class="screen">
-    <div class="spacer"></div>
-    <div id="timer-shelter" class="timer">00:07</div>
-    <button id="btn-exit-shelter" class="btn-half btn-green">Exit</button>
-  </main>
-
-  <!-- OUTSIDE: countdown + two buttons -->
-  <main id="screen-outside" class="screen">
-    <div class="outside-body">
-      <div id="timer-outside" class="timer timer-outside">20:00</div>
-      <div class="outside-note">Confirm you're okay</div>
+  <!-- ALERT — home screen: visit stats + "rocket alert" trigger -->
+  <main id="screen-alert" class="screen active">
+    <div class="header-box">vault_log_0_1</div>
+    <div class="stats">
+      <span>count</span> <span>today</span> <span id="stats-today">0</span>
+      <span></span> <span>total</span> <span id="stats-total">0</span>
+      <span>last enter</span> <span id="stats-date">—</span> <span id="stats-time">—</span>
     </div>
-    <div class="outside-top">
-      <button id="btn-outside-go" class="btn-half btn-green">Shelter</button>
-      <button id="btn-outside-ok" class="btn-half btn-dark" style="color:#555;">I'm OK</button>
-    </div>
+    <button id="btn-alert-ack" class="btn">rocket alert</button>
+  </main>
+
+  <!-- IDLE — alarm acknowledged, choose: go to vault or skip -->
+  <main id="screen-idle" class="screen">
+    <button id="btn-not-going" class="btn btn-muted">not going</button>
+    <button id="btn-go-vault" class="btn">go to vault</button>
+  </main>
+
+  <!-- VAULT — inside vault, timer counting up inside header-box -->
+  <main id="screen-vault" class="screen">
+    <div class="header-box" id="timer-vault">00:00</div>
+    <button id="btn-exit-vault" class="btn">exit vault</button>
   </main>
 
   <script src="data.js"></script>

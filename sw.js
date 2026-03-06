@@ -1,10 +1,14 @@
-const CACHE_NAME = 'shelter-v1';
+const CACHE_NAME = 'vault-v1';
 const ASSETS = [
     './',
     './index.html',
     './style.css',
+    './data.js',
     './app.js',
     './manifest.json',
+    './icons/icon.svg',
+    './icons/icon-192.png',
+    './icons/icon-512.png',
 ];
 
 self.addEventListener('install', (e) => {
